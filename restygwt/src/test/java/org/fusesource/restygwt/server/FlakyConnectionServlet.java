@@ -18,14 +18,13 @@
 
 package org.fusesource.restygwt.server;
 
-import java.io.IOException;
-import java.util.logging.Logger;
+import org.apache.commons.httpclient.HttpStatus;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.mortbay.jetty.HttpStatus;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * Servlet component of the FlakyConnectionTestGwt.
@@ -55,9 +54,9 @@ public class FlakyConnectionServlet extends HttpServlet {
         log.fine("GET: flakyMODE");
 
         if (currentNumberOfServerFailures < NUMBER_OF_SERVER_FAILURES_TO_SIMULATE) {
-            log.fine("respond code: " + HttpStatus.ORDINAL_500_Internal_Server_Error + " with purpose");
+            log.fine("respond code: " + HttpStatus.SC_INTERNAL_SERVER_ERROR + " with purpose");
             ++currentNumberOfServerFailures;
-            response.setStatus(HttpStatus.ORDINAL_500_Internal_Server_Error);
+            response.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR);
         } else {
             log.fine("response: " + DUMMY_RESPONSE);
             response.getWriter().print(DUMMY_RESPONSE);

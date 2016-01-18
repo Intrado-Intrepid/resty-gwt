@@ -18,14 +18,13 @@
 
 package org.fusesource.restygwt.server;
 
-import java.io.IOException;
-import java.util.logging.Logger;
+import org.apache.commons.httpclient.HttpStatus;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.mortbay.jetty.HttpStatus;
+import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * Servlet component of the FailingConnectionTestGwt.
@@ -51,9 +50,9 @@ public class FailingConnectionServlet extends HttpServlet {
 
         log.fine("GET: failingMODE");
 
-        log.fine("respond code: " + 
-                (HttpStatus.ORDINAL_500_Internal_Server_Error  + currentNumberOfServerFailures) + 
-                " with purpose");
-        response.setStatus(HttpStatus.ORDINAL_500_Internal_Server_Error + currentNumberOfServerFailures++);
+        log.fine("respond code: " +
+                 (HttpStatus.SC_INTERNAL_SERVER_ERROR + currentNumberOfServerFailures) +
+                 " with purpose");
+        response.setStatus(HttpStatus.SC_INTERNAL_SERVER_ERROR + currentNumberOfServerFailures++);
     }
 }

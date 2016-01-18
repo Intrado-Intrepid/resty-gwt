@@ -74,7 +74,7 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
         <version>${jackson.version}</version>
-        <classifier>sources</classifier>
+      <!--<classifier>sources</classifier>-->
     </dependency>
     <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -85,8 +85,14 @@
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
         <version>${jackson.version}</version>
-        <classifier>sources</classifier>
+      <!--<classifier>sources</classifier>-->
     </dependency>
+    <!--<dependency>-->
+    <!--<groupId>org.eclipse.jetty</groupId>-->
+    <!--<artifactId>jetty</artifactId>-->
+    <!--<version>9.2.9.v20150224</version>-->
+    <!--<scope>test</scope>-->
+    <!--</dependency>-->
     <dependency>
         <groupId>org.easymock</groupId>
         <artifactId>easymock</artifactId>
